@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feedback</title>
+</head>
+<body>
+     <h1>Feedback</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:#fff3e0;
+            margin: 0;
+            padding: 0;
+        }  
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+        form {
+            background: #fff;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 30px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #222;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        button[type="submit"] {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #125ea2;
+        }
+    </style>
+    <form style="background: #fff8f0; border: 2px solid #a0522d; margin:40px auto;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required style="border-color:#b23a19; background:#fffbe6;">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required style="border-color:#6d3b1a; background:#fffbe6;">
+
+        <label for="experience">How was your experience?</label>
+        <select id="experience" name="experience" required style="border-color:#b23a19; background:#fffbe6;">
+            <option value="">Select</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Average">Average</option>
+            <option value="Poor">Poor</option>
+        </select>
+
+        <label for="comments">Comments/Suggestions:</label>
+        <textarea id="comments" name="comments" rows="4" cols="40" style="border-color:#6d3b1a; background:#fffbe6;"></textarea>
+
+        <button type="submit" style="background:#b23a19; color:#fff;">Submit Feedback</button>
+    </form>

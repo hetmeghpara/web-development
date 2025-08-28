@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cover Page</title>
+    <link rel="stylesheet" href="page1.css">
+    <style>
+        body {
+            background: url('back.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.7);
+            z-index: -1;
+        }
+        .main {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .NBC img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .section-title {
+            color: #4e260e;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 40px 0 20px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .coaches-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0 40px 0;
+            flex-wrap: wrap;
+        }
+        .coach-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+            padding: 24px 18px 18px 18px;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .coach-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        }
+        .coach-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 16px;
+            border: 3px solid #ff9800;
+        }
+        .coach-card h3 {
+            margin: 0 0 8px 0;
+            color: #ff6f00;
+            font-size: 1.2em;
+        }
+        .coach-card p {
+            margin: 0;
+            color: #4e260e;
+            font-weight: 500;
+        }
+        .initiatives-section, .collaboration-section, .testimonials-section {
+            background: rgba(255,255,255,0.92);
+            border-radius: 16px;
+            box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+            padding: 24px 18px 18px 18px;
+            margin: 30px auto 30px auto;
+            max-width: 700px;
+        }
+        .initiatives-heading, .collaboration-heading, .testimonials-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        .initiatives-heading img,
+        .collaboration-heading img,
+        .testimonials-heading img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .initiatives-section ul, .collaboration-section ul {
+            margin: 0;
+            padding-left: 24px;
+        }
+        .testimonials-list {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .testimonial-card {
+            background: #fffbe7;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(255, 152, 0, 0.10);
+            padding: 18px 16px;
+            max-width: 260px;
+            min-width: 180px;
+            margin-bottom: 18px;
+        }
+        .testimonial-card p {
+            color: #4e260e;
+            font-size: 1em;
+            margin: 0;
+        }
+        .testimonials-section {
+            background: linear-gradient(135deg, #fffbe7 60%, #ffe0b2 100%);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(255, 152, 0, 0.12);
+            padding: 32px 24px 24px 24px;
+            margin: 40px auto 40px auto;
+            max-width: 700px;
+            border: 2px solid #ff9800;
+        }
+        .testimonials-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+        .testimonials-heading img {
+            width: 54px;
+            height: 54px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(255, 152, 0, 0.15);
+        }
+        .testimonials-heading h2 {
+            color: #ff9800;
+            font-size: 1.7em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        .testimonials-list {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .testimonial-card.enhanced {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(255, 152, 0, 0.13);
+            padding: 22px 18px;
+            max-width: 280px;
+            min-width: 180px;
+            margin-bottom: 18px;
+            border: 2px solid #ff9800;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .testimonial-card.enhanced:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 12px 32px 0 rgba(255, 152, 0, 0.18);
+            border-color: #4e260e;
+            background: #ffe0b2;
+        }
+        .testimonial-card.enhanced p {
+            color: #4e260e;
+            font-size: 1.08em;
+            margin: 0;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .quote-mark {
+            color: #ff9800;
+            font-size: 1.5em;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 18px auto 30px auto;
+            flex-wrap: wrap;
+            background: rgba(255, 152, 0, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(255, 152, 0, 0.10);
+            padding: 12px 0;
+            max-width: 900px;
+        }
+        .nav-btn {
+            background: linear-gradient(90deg, #ff9800 0%, #ffe0b2 100%);
+            color: #4e260e;
+            font-weight: 600;
+            font-size: 1em;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 8px 22px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 152, 0, 0.08);
+            transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .nav-btn:hover, .nav-btn:focus {
+            background: linear-gradient(90deg, #ff9800 0%, #ff6f00 100%);
+            color: #fff;
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 4px 18px rgba(255, 152, 0, 0.18);
+            border-color: #4e260e;
+        }
+        .about-nbc-grid {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 30px auto;
+            max-width: 1200px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+            padding: 32px 40px;
+        }
+        .about-nbc-img img {
+            width: 100%;
+            max-width: 340px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 4px 18px 0 rgba(255,152,0,0.18);
+            border: 3px solid #ff9800;
+            background: #fffbe7;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .about-nbc-img img:hover {
+            transform: scale(1.04) rotate(-2deg);
+            box-shadow: 0 12px 32px 0 rgba(255,152,0,0.28);
+            border-color: #4e260e;
+        }
+        .about-nbc-content ul {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 1.25em;
+            color: #4e260e;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            list-style: disc inside;
+            margin: 0;
+            padding-left: 0;
+            line-height: 2;
+            background: none;
+        }
+        .about-nbc-content ul li {
+            margin-bottom: 12px;
+            padding-left: 0;
+            background: none;
+            transition: color 0.2s;
+        }
+        .about-nbc-content ul li:hover {
+            color: #ff9800;
+        }
+        @media (max-width: 900px) {
+            .coaches-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .initiatives-section, .collaboration-section, .testimonials-section {
+                max-width: 98vw;
+            }
+            .about-nbc-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 18px 8vw;
+            }
+            .about-nbc-img img {
+                max-width: 98vw;
+                height: 260px;
+            }
+        }
+        @media (max-width: 700px) {
+            .main, .coaches-grid {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .NBC img, .coach-card img {
+                width: 100%;
+                max-width: 180px;
+            }
+            .testimonials-list {
+                flex-direction: column;
+                gap: 18px;
+                align-items: center;
+            }
+            .testimonial-card.enhanced {
+                max-width: 98vw;
+            }
+            .navbar {
+                gap: 10px;
+                padding: 8px 0;
+                max-width: 98vw;
+            }
+            .nav-btn {
+                padding: 7px 10px;
+                font-size: 0.95em;
+            }
+        }
+        .missions-visions-grid {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 30px auto 40px auto;
+            max-width: 900px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+            padding: 32px 40px;
+        }
+        .missions-visions-content ul {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 1.22em;
+            color: #4e260e;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            list-style: disc inside;
+            margin: 0;
+            padding-left: 0;
+            line-height: 2;
+            background: none;
+        }
+        .missions-visions-content ul li {
+            margin-bottom: 12px;
+            padding-left: 0;
+            background: none;
+            transition: color 0.2s;
+        }
+        .missions-visions-content ul li:hover {
+            color: #ff9800;
+        }
+        @media (max-width: 900px) {
+            .missions-visions-grid {
+                padding: 18px 8vw;
+            }
+        }
+        .main-heading-modern {
+            text-align: center;
+            font-size: 3.3em;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 900;
+            margin-top: 38px;
+            margin-bottom: 0;
+            letter-spacing: 2.5px;
+            background: linear-gradient(90deg, #ff9800 0%, #ff7043 50%, #4e260e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 6px 24px #ff9800, 0 2px 8px #fffbe7;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            border-bottom: 4px solid #ff9800;
+            padding-bottom: 10px;
+        }
+        .main-heading-icon-modern {
+            font-size: 1.3em;
+            vertical-align: middle;
+            margin: 0 10px;
+            filter: drop-shadow(0 2px 4px #ff9800);
+            animation: bounce 1.2s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0);}
+            100% { transform: translateY(-8px);}
+        }
+        .main-heading-text-modern {
+            font-family: inherit;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+            font-size: inherit;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .main-subheading-modern {
+            text-align: center;
+            font-size: 1.25em;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            color: #ff7043;
+            font-weight: 700;
+            margin-bottom: 22px;
+            letter-spacing: 1.2px;
+            text-shadow: 0 2px 8px #fffbe7;
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-heading-modern">
+    <span class="main-heading-icon-modern">🏀</span>
+    <span class="main-heading-text-modern">National Basketball Club</span>
+    <span class="main-heading-icon-modern">🏀</span>
+</h1>
+
+    </h1>
+    <p class="main-subheading-modern">
+        <span>.....Where success is the tradition.....</span>
+    </p>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+    .main-heading-modern {
+        text-align: center;
+        font-size: 3.3em;
+        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        font-weight: 900;
+        margin-top: 38px;
+        margin-bottom: 0;
+        letter-spacing: 2.5px;
+        background: linear-gradient(90deg, #9a8393 0%, #201e20 50%, #ca4f03 100%);
+        
+        
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        border-bottom: 4px solid #ff9800;
+        padding-bottom: 10px;
+    }
+    .main-heading-icon-modern {
+        font-size: 1.3em;
+        vertical-align: middle;
+        margin: 0 10px;
+        filter: drop-shadow(0 2px 4px #ff9800);
+        animation: bounce 1.0s infinite alternate;
+    }
+    @keyframes bounce {
+        0% { transform: translateY(0);}
+        100% { transform: translateY(-8px);}
+    }
+    .main-heading-text-modern {
+        font-family: inherit;
+        font-weight: 900;
+        letter-spacing: 2.5px;
+        font-size: inherit;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+    .main-subheading-modern {
+        text-align: center;
+        font-size: 1.25em;
+        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        color: #1d1614;
+        font-weight: 700;
+        margin-bottom: 22px;
+        letter-spacing: 1.2px;
+        text-shadow: 0 2px 8px #fffbe7;
+        position: relative;
+        z-index: 2;
+    }
+    </style>
+    <hr>
+    <div class="navbar">
+        <a href="page2.html"><button class="nav-btn">Careers</button></a>
+        <a href="page3.html"><button class="nav-btn">Star Players</button></a>
+        <a href="page4.html"><button class="nav-btn">Rule Book</button></a>
+        <a href="page5.html"><button class="nav-btn">Enroll</button></a>
+        <a href="page6.html"><button class="nav-btn">Scholarship</button></a>
+        <a href="page7.html"><button class="nav-btn">Student Profiles</button></a>
+        <a href="page8.html"><button class="nav-btn">Events</button></a>
+        <a href="page9.html"><button class="nav-btn">Feedback</button></a>
+        <a href="page10.html"><button class="nav-btn">Contact Us</button></a>
+    </div>
+    <div><img src="b1.jpg" width="100%" style="max-width:1450px; height:600px; border-radius:18px; box-shadow:0 4px 18px 0 rgba(31,38,135,0.10);"></div>
+    
+    <h2 class="section-title" style="margin-top:40px;">About NBC</h2>
+    <div class="about-nbc-grid">
+        <div class="about-nbc-img">
+            <img src="h.jpg" alt="NBC Arena">
+        </div>
+        <div class="about-nbc-content">
+            <ul>
+                <li>Ranked among top 5 basketball clubs in INDIA</li>
+                <li>Ranked in top 250 basketball clubs whole over WORLD</li>
+                <li>5 times national champions</li>
+                <li>Certified by sports authority of INDIA</li>
+            </ul>
+        </div>
+    </div>
+    <style>
+    .about-nbc-grid {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 60px;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto 30px auto;
+        max-width: 1200px;
+        background: rgba(255,255,255,0.85);
+        border-radius: 24px;
+        
+        padding: 32px 40px;
+    }
+    .about-nbc-img img {
+        width: 100%;
+        max-width: 340px;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 4px 18px 0 rgba(255,152,0,0.18);
+        border: 3px solid #ff9800;
+        background: #fffbe7;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .about-nbc-img img:hover {
+        transform: scale(1.04) rotate(-2deg);
+        box-shadow: 0 12px 32px 0 rgba(255,152,0,0.28);
+        border-color: #4e260e;
+    }
+    .about-nbc-content ul {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 1.25em;
+        color: #4e260e;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        list-style: disc inside;
+        margin: 0;
+        padding-left: 0;
+        line-height: 2;
+        background: none;
+    }
+    .about-nbc-content ul li {
+        margin-bottom: 12px;
+        padding-left: 0;
+        background: none;
+        transition: color 0.2s;
+    }
+    .about-nbc-content ul li:hover {
+        color: #ff9800;
+    }
+    @media (max-width: 900px) {
+        .about-nbc-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            padding: 18px 8vw;
+        }
+        .about-nbc-img img {
+            max-width: 98vw;
+            height: 260px;
+        }
+    }
+    </style>
+
+    <h2 class="section-title" style="margin-top:40px;">Missions and Visions</h2>
+    <div class="missions-visions-grid">
+        <div class="missions-visions-content">
+            <ul>
+                <li>To promote basketball in INDIA</li>
+                <li>To provide best training to players</li>
+                <li>To make INDIA a basketball superpower</li>
+            </ul>
+        </div>
+    </div>
+    <style>
+    .missions-visions-grid {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 30px auto 40px auto;
+        max-width: 900px;
+        background: rgba(255,255,255,0.85);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+        padding: 32px 40px;
+    }
+    .missions-visions-content ul {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 1.22em;
+        color: #4e260e;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        list-style: disc inside;
+        margin: 0;
+        padding-left: 0;
+        line-height: 2;
+        background: none;
+    }
+    .missions-visions-content ul li {
+        margin-bottom: 12px;
+        padding-left: 0;
+        background: none;
+        transition: color 0.2s;
+    }
+    .missions-visions-content ul li:hover {
+        color: #ff9800;
+    }
+    @media (max-width: 900px) {
+        .missions-visions-grid {
+            padding: 18px 8vw;
+        }
+    }
+    </style>
+
+    <!-- Coaches Section -->
+    <h2 class="section-title">About Coaches</h2>
+    <div class="coaches-grid">
+        <div class="coach-card">
+            <img src="2.jpg" alt="Head Coach">
+            <h3>Head Coach</h3>
+            <p>HET MEGHPARA</p>
+        </div>
+        <div class="coach-card">
+            <img src="3.avif" alt="Assistant Coach">
+            <h3>Assistant Coach</h3>
+            <p>ARJUNSINGH VAGEHLA</p>
+        </div>
+    </div>
+
+    <!-- Initiatives Section -->
+    <div class="initiatives-section">
+        <div class="initiatives-heading">
+            <img src="i.webp" alt="Initiatives">
+            <h2>Initiatives</h2>
+        </div>
+        <ul>
+            <li>Youth Motivation Sports Center</li>
+            <li>NBC Health and Care Center</li>
+            <li>NBC Scholarship Center</li>
+        </ul>
+    </div>
+
+    <!-- Collaboration Section -->
+    <div class="collaboration-section">
+        <div class="collaboration-heading">
+            <img src="c.jpg" alt="Collaboration">
+            <h2>Collaboration</h2>
+        </div>
+        <ul>
+            <li>Partnered with leading sports academies and organizations</li>
+            <li>Joint events and tournaments</li>
+        </ul>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+        <div class="testimonials-heading">
+            <img src="h.jpg" alt="Testimonials">
+            <h2>Testimonials</h2>
+        </div>
+        <div class="testimonials-list">
+            <div class="testimonial-card enhanced">
+                <p><span class="quote-mark">“</span> NBC gave me the confidence and skills to play at the national level! <span class="quote-mark">”</span></p>
+            </div>
+            <div class="testimonial-card enhanced">
+                <p><span class="quote-mark">“</span> The coaches are supportive and the facilities are world-class. <span class="quote-mark">”</span></p>
+            </div>
+            <div class="testimonial-card enhanced">
+                <p><span class="quote-mark">“</span> A great place to grow as a player and as a person. <span class="quote-mark">”</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

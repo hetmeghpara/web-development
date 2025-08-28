@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Basketball Club - Contact & FAQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff3e0;
+            color: #6d3b1a;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background: #b23a19;
+            color: #fffbe6;
+            padding: 20px 0;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            background: #fff8f0;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(178,58,25,0.08);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #a0522d;
+        }
+
+        ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #e25822;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #b23a19;
+        }
+
+        p {
+            color: #a0522d;
+        }
+
+        .faq {
+            margin-top: 40px;
+        }
+
+        .faq h2 {
+            color: #b23a19;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .question {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #b23a19;
+            cursor: pointer;
+            margin: 15px 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        .question:hover {
+            color: #e25822;
+        }
+
+        .answer {
+            font-size: 1em;
+            color: #a0522d;
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <div class="container">
+        <p>If you have any questions or need further information, please reach out to us:</p>
+        <ul>
+            <li>Email: <a href="mailto:xyz@gmail.com">xyz@gmail.com</a></li>
+            <li>Phone: <a href="tel:+1234567891">+1234567891</a></li>
+            <li>Address: 123 Basketball Lane, Sports City, Country</li>
+            <li>Follow us on social media:@nbcstars</li>
+        </ul>
+
+        <div class="faq">
+            <h2>FAQs</h2>
+
+            <div class="question">🏀 When are practice sessions held?</div>
+            <div class="answer">Practice is scheduled every Tuesday and Saturday from 5pm to 7pm at the Sports City Court.</div>
+
+            <div class="question">👟 Do I need to bring my own gear?</div>
+            <div class="answer">Yes, please bring basketball shoes and a water bottle. Jerseys and balls are provided.</div>
+
+            <div class="question">📅 How do I join the club?</div>
+            <div class="answer">Join us by filling out a registration form at the clubhouse or contacting us via email.</div>
+
+            <div class="question">💲 Is there a membership fee?</div>
+            <div class="answer">The monthly fee is ₹1500, covering gym access and court usage.</div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle answers when questions are clicked
+        document.querySelectorAll('.question').forEach(q => {
+            q.addEventListener('click', () => {
+                const a = q.nextElementSibling;
+                a.style.display = a.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

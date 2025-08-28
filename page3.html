@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Players</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fff3e0);
+            color: #222;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            padding: 40px 30px 30px 30px;
+            margin-top: 40px;
+            max-width: 520px;
+            width: 95%;
+        }
+
+        h1 {
+            color: #ff6f00;
+            text-align: center;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 1px 2px 8px #fffde7;
+        }
+
+        h2 {
+            color: #ff9800;
+            margin-top: 28px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        ul {
+            background: #ffe0b2;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 16px 28px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 12px rgba(255, 152, 0, 0.10);
+            list-style-type: disc;
+            max-width: 400px;
+        }
+
+        li {
+            color: #4e260e;
+            font-size: 1.08em;
+            margin-bottom: 7px;
+            font-weight: 500;
+        }
+
+        li:hover {
+            color: #e65100;
+            cursor: default;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 5vw;
+                margin-top: 18px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script  src="pg3.js"></script>
+    <div class="container">
+        <h1>Star Players</h1>
+        <h2>1. Hari Makwana</h2>
+        <ul>
+            <li>Position: Small Forward</li>
+            <li>Teams: Cleveland Cavaliers, Miami Heat, Los Angeles Lakers</li>
+        </ul>
+
+        <h2>2. Krish Shah</h2>
+        <ul>
+            <li>Position: Point Guard</li>
+            <li>Teams: Golden State Warriors, Chicago Bulls</li>
+        </ul>
+
+        <h2>3. Sashvat Shah</h2>
+        <ul>
+            <li>Position: Center</li>
+            <li>Teams: Boston Celtics, San Antonio Spurs</li>
+        </ul>
+    </div>
+</body>
+</html>
