@@ -1,0 +1,3 @@
+Name:"HET";Surname:"Meck";Fathers Name:"Vim";Contact:"9065656565";paymentMethod:"UPI";
+Name:"Rahil";Surname:"DEDH";Fathers Name:"JT";Contact:"9065689565";paymentMethod:"UPI";
+Name:"Krutik";Surname:"Mec";Fathers Name:"KN";Contact:"9065786565";paymentMethod:"UPI";

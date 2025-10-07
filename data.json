@@ -1,0 +1,35 @@
+[
+    {
+        "event_id": 1,
+        "event_name": "National Basketball Championship",
+        "date": "2024-07-15",
+        "location": "Madison Square Garden, New York",
+        "teams": ["New York Eagles", "Chicago Bulls"],
+        "score": {
+            "New York Eagles": 102,
+            "Chicago Bulls": 98
+        }
+    },
+    {
+        "event_id": 2,
+        "event_name": "All-Star Game",
+        "date": "2024-08-10",
+        "location": "Staples Center, Los Angeles",
+        "teams": ["West All-Stars", "East All-Stars"],
+        "score": {
+            "West All-Stars": 120,
+            "East All-Stars": 115
+        }
+    },
+    {
+        "event_id": 3,
+        "event_name": "Youth Basketball Tournament",
+        "date": "2024-09-05",
+        "location": "United Center, Chicago",
+        "teams": ["Chicago Juniors", "LA Youngsters"],
+        "score": {
+            "Chicago Juniors": 89,
+            "LA Youngsters": 92
+        }
+    }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Annual Basketball Tournament",
+    "description": "Competitive event for all age groups, held every summer.",
+    "date": "2025-07-15",
+    "location": "National Basketball Club Arena",
+    "category": "tournament",
+    "registration_fee": 500,
+    "max_participants": 64
+  },
+  {
+    "id": 2,
+    "title": "Coaching Camps",
+    "description": "Skill development camps for beginners and advanced players.",
+    "date": "2025-06-01",
+    "location": "Training Ground A",
+    "category": "training",
+    "registration_fee": 1200,
+    "max_participants": 30
+  },
+  {
+    "id": 3,
+    "title": "Friendly Matches",
+    "description": "Regular friendly matches with local and regional teams.",
+    "date": "Every Saturday",
+    "location": "Various Courts",
+    "category": "match",
+    "registration_fee": 0,
+    "max_participants": 20
+  },
+  {
+    "id": 4,
+    "title": "Fitness Workshops",
+    "description": "Workshops on fitness, nutrition, and injury prevention.",
+    "date": "2025-05-20",
+    "location": "NBC Health Center",
+    "category": "workshop",
+    "registration_fee": 300,
+    "max_participants": 50
+  },
+  {
+    "id": 5,
+    "title": "Family Day",
+    "description": "Fun activities and games for club members and their families.",
+    "date": "2025-08-10",
+    "location": "NBC Recreation Area",
+    "category": "social",
+    "registration_fee": 100,
+    "max_participants": 200
+  },
+  {
+    "id": 6,
+    "title": "Charity Events",
+    "description": "Fundraising matches and activities for social causes.",
+    "date": "2025-09-05",
+    "location": "NBC Main Court",
+    "category": "charity",
+    "registration_fee": 250,
+    "max_participants": 100
+  },
+  {
+    "id": 7,
+    "title": "Youth Basketball League",
+    "description": "Competitive league for players under 18 years.",
+    "date": "2025-10-15",
+    "location": "Youth Sports Complex",
+    "category": "league",
+    "registration_fee": 800,
+    "max_participants": 80
+  },
+  {
+    "id": 8,
+    "title": "Basketball Skills Challenge",
+    "description": "Individual skills competition featuring dribbling, shooting, and agility tests.",
+    "date": "2025-11-12",
+    "location": "NBC Main Arena",
+    "category": "competition",
+    "registration_fee": 150,
+    "max_participants": 40
+  }
+]

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture Attendance System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .hidden { display: none; }
+        .container { max-width: 400px; margin: auto; }
+        label { display: block; margin-top: 10px; }
+        input, select, button { width: 100%; padding: 8px; margin-top: 5px; }
+        .success { color: green; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Page -->
+        <div id="loginPage">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button onclick="login()">Login</button>
+            <div id="loginError" style="color:red;"></div>
+        </div>
+
+        <!-- Attendance Page -->
+        <div id="attendancePage" class="hidden">
+            <h2>Mark Attendance</h2>
+            <label for="faculty">Faculty Name:</label>
+            <select id="faculty">
+                <option value="">Select Faculty</option>
+                <option value="Dr. Smith">Dr. Smith</option>
+                <option value="Prof. Johnson">Prof. Johnson</option>
+                <option value="Ms. Lee">Ms. Lee</option>
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date">
+
+            <button onclick="searchSession()">Search Lecture Session</button>
+            <div id="sessionList"></div>
+        </div>
+
+        <!-- Attendance Confirmation -->
+        <div id="confirmPage" class="hidden">
+            <h2>Confirm Attendance</h2>
+            <div id="sessionInfo"></div>
+            <label>
+                <input type="checkbox" id="attendanceCheck"> Mark Present
+            </label>
+            <button onclick="saveAttendance()">Save Attendance</button>
+            <div id="saveStatus"></div>
+        </div>
+    </div>
+
+    <script>
+        // Allow login with any username and password
+        function login() {
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('attendancePage').classList.remove('hidden');
+        }
+
+        // Simulated session search
+        function searchSession() {
+            const faculty = document.getElementById('faculty').value;
+            const date = document.getElementById('date').value;
+        }
+
+        // Simulated session search
+        function searchSession() {
+            const faculty = document.getElementById('faculty').value;
+            const date = document.getElementById('date').value;
+            const sessionList = document.getElementById('sessionList');
+            sessionList.innerHTML = '';
+            if (faculty && date) {
+                // Simulate found session
+                sessionList.innerHTML = `
+                    <div>
+                        <strong>Session:</strong> ${faculty} - ${date}
+                        <button onclick="selectSession('${faculty}', '${date}')">Mark Attendance</button>
+                    </div>
+                `;
+            } else {
+                sessionList.innerHTML = '<span style="color:red;">Please select faculty and date.</span>';
+            }
+        }
+
+        // Proceed to attendance confirmation
+        function selectSession(faculty, date) {
+            document.getElementById('attendancePage').classList.add('hidden');
+            document.getElementById('confirmPage').classList.remove('hidden');
+            document.getElementById('sessionInfo').textContent = `Faculty: ${faculty}, Date: ${date}`;
+            document.getElementById('attendanceCheck').checked = false;
+            document.getElementById('saveStatus').textContent = '';
+        }
+
+        // Save attendance and verify
+        function saveAttendance() {
+            const checked = document.getElementById('attendanceCheck').checked;
+            if (checked) {
+                // Simulate saving attendance
+                localStorage.setItem('attendanceRecorded', 'true');
+                document.getElementById('saveStatus').innerHTML = '<span class="success">Attendance successfully recorded!</span>';
+                verifyAttendance();
+            } else {
+                document.getElementById('saveStatus').innerHTML = '<span style="color:red;">Please mark present before saving.</span>';
+            }
+        }
+
+        // Verify attendance using JS
+        function verifyAttendance() {
+            if (localStorage.getItem('attendanceRecorded') === 'true') {
+                setTimeout(() => {
+                    alert('Attendance has been verified and saved!');
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>

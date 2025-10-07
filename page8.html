@@ -118,6 +118,36 @@
     const slider = document.getElementById('slider');
     const slides = document.querySelectorAll('.slide');
     let currentIndex = 0;
+    let eventsData = [];
+
+    // Load events from JSON
+    async function loadEvents() {
+      try {
+        const response = await fetch('events.json');
+        eventsData = await response.json();
+        displayEvents();
+      } catch (error) {
+        console.log('Using default events data');
+        // Fallback to current events if JSON fails to load
+      }
+    }
+
+    function displayEvents() {
+      if (eventsData.length > 0) {
+        const eventsList = document.querySelector('ul');
+        eventsList.innerHTML = '';
+        
+        eventsData.forEach(event => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <h3>${event.title}</h3>
+            <p>${event.description}</p>
+            <small style="color: #ff9800;">Date: ${event.date || 'TBA'}</small>
+          `;
+          eventsList.appendChild(li);
+        });
+      }
+    }
 
     function showSlide(index) {
       if (index >= slides.length) currentIndex = 0;
@@ -129,6 +159,9 @@
       currentIndex++;
       showSlide(currentIndex);
     }
+
+    // Load events on page load
+    window.addEventListener('DOMContentLoaded', loadEvents);
 
     // Auto-slide every 4 seconds
     setInterval(nextSlide, 4000);
